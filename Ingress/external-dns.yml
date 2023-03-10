@@ -62,7 +62,7 @@ spec:
           mountPath: /etc/kubernetes
           readOnly: true
       imagePullSecrets:
-         - name: imagepullsecret    
+         - name: quicktoolsimagepullsecret    
       volumes:
       - name: azure-config-file
         secret:
