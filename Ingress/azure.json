@@ -1,0 +1,7 @@
+{
+  "tenantId": "a07ebae6-43b2-4e80-a99e-7801411aa9ae",
+  "subscriptionId": "f951c957-8124-452b-882e-beba2e7b5858",
+  "resourceGroup": "RGDNSZONE", 
+  "useManagedIdentityExtension": true,
+  "userAssignedIdentityID": "e4912d4c-843c-44cc-8254-fd96cc193f58"
+}

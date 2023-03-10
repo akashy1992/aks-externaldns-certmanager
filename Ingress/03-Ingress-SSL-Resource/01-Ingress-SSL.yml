@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-ssl
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    cert-manager.io/cluster-issuer: letsencrypt
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"    
+spec:
+  rules:
+    - host: sapp1.test.avinashyadav.tk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app1-nginx-clusterip-service
+                port: 
+                  number: 80
+    - host: sapp2.test.avinashyadav.tk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app2-nginx-clusterip-service
+                port: 
+                  number: 80                         
+  tls:
+  - hosts:
+    - sapp1.test.avinashyadav.tk
+    secretName: sapp1-kubeoncloud-secret           
+  - hosts:
+    - sapp2.test.avinashyadav.tk
+    secretName: sapp2-kubeoncloud-secret           
+
+          
